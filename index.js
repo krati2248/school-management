@@ -3,12 +3,17 @@ const app = express();
 const {db,connectDB} = require('./database/dbConnect');
 const web = require('./routes/web');
 require('dotenv').config();
- 
- 
+
+//middleware
 app.use(express.json());
+
+//connect db
+connectDB();
+
+//routes
 app.use('/', web);
 
-connectDB();
+
 
 app.listen(process.env.PORT||3000, () =>
 {
