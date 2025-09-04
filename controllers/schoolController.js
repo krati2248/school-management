@@ -1,4 +1,4 @@
-const db = require('../database/dbConnect');
+const connectDB = require('../database/dbConnect');
 
 class schoolController {
     static addSchool = async (req, res) => {
@@ -40,7 +40,7 @@ class schoolController {
 
             //Checking duplicates
             const checkQuery = "SELECT * FROM schools WHERE name = ? AND address = ?";
-            db.query(checkQuery, [name, address], (err, rows) => {
+            connectDB.query(checkQuery, [name, address], (err, rows) => {
                 if (err) {
                     console.log(err);
                     return res.status(500).json({
@@ -59,7 +59,7 @@ class schoolController {
 
                 //Inserting school
                 const sq = "insert into schools (name,address,latitude,longitude) values (?,?,?,?)";
-                db.query(sq, [name, address, latitude, longitude], (er, dt) => {
+                connectDB.query(sq, [name, address, latitude, longitude], (er, dt) => {
                     if (er) {
                         console.log(er);
                         return res.status(500).json({
@@ -109,7 +109,7 @@ class schoolController {
             }
 
             const sql = "select * from schools";
-            db.query(sql, (er, dt) => {
+            connectDB.query(sql, (er, dt) => {
                 if (er) {
                     console.log(er);
                     return res.status(500).json({
