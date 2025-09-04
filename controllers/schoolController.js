@@ -1,4 +1,4 @@
-const db = require('../database/dbconnect');
+const db = require('../database/dbConnect');
 
 class schoolController {
     static addSchool = async (req, res) => {
