@@ -1,4 +1,5 @@
-School-management API
+School-management API - 
+
 This project provides REST APIs to manage schools.
 Users can add schools and fetch a list of schools sorted by proximity to their location.
 
