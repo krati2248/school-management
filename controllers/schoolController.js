@@ -6,7 +6,7 @@ class schoolController {
             const { name, address, latitude, longitude } = req.body;
             //Checking required fields
             if (!name || !address || !latitude || !longitude) {
-                return res.json(400).json({
+                return res.status(400).json({
                     success: false,
                     message: "All fields (name, address, latitude, longitude) are required"
                 });
@@ -128,7 +128,7 @@ class schoolController {
                     return { ...school, distance: dist.toFixed(2) };
                 });
                 schoolwithDistance.sort((a, b) => a.distance - b.distance);
-                return res.json({
+                return res.status(200).json({
                     success: true,
                     schools:schoolwithDistance
                 })
