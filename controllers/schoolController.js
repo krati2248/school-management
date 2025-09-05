@@ -127,7 +127,7 @@ class schoolController {
                     )
                     return { ...school, calculatedDistanceKm: dist.toFixed(2) };
                 });
-                schoolwithDistance.sort((a, b) => a.distance - b.distance);
+                schoolwithDistance.sort((a, b) => a.calculatedDistanceKm - b.calculatedDistanceKm);
                 return res.status(200).json({
                     success: true,
                     schools:schoolwithDistance
