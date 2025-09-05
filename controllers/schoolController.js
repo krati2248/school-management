@@ -125,7 +125,7 @@ class schoolController {
                         userLat, userLng,
                         parseFloat(school.latitude), parseFloat(school.longitude)
                     )
-                    return { ...school, distance: dist.toFixed(2) };
+                    return { ...school, distance: `${dist.toFixed(2)} km` };
                 });
                 schoolwithDistance.sort((a, b) => a.distance - b.distance);
                 return res.status(200).json({
